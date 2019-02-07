@@ -1,0 +1,29 @@
+{
+	"name": "graphql-apollo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js",
+		"server": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RyanEmslie/graphql-apollo.git"
+	},
+	"author": "Ryan Emslie",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/RyanEmslie/graphql-apollo/issues"
+	},
+	"homepage": "https://github.com/RyanEmslie/graphql-apollo#readme",
+	"dependencies": {
+		"axios": "^0.18.0",
+		"express": "^4.16.4",
+		"express-graphql": "^0.7.1",
+		"graphql": "^14.1.1"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.9"
+	}
+}
