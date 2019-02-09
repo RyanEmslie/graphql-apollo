@@ -33,7 +33,10 @@ export default function LaunchItem({
 					</p>
 				</div>
 				<div className="col-md-3">
-					<Link to={`/launch/${flight_number}`} className="btn btn-secondary">
+					<Link
+						to={`launches/launch/${flight_number}`}
+						className="btn btn-secondary"
+					>
 						Launch Details
 					</Link>
 				</div>
