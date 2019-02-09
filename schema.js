@@ -18,11 +18,13 @@ const LaunchType = new GraphQLObjectType({
 		launch_year: { type: GraphQLString },
 		launch_date_local: { type: GraphQLString },
 		launch_success: { type: GraphQLBoolean },
+		// This provides access to nested Rocket values
 		rocket: { type: RocketType }
 	})
 });
 
 // Rocket Type
+// Separate object need to access nested Rocket values
 const RocketType = new GraphQLObjectType({
 	name: "Rocket",
 	fields: () => ({
