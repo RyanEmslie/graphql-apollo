@@ -5,6 +5,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Used for conditional class rendering
+// Probably overkill for this app but want to test it
 import classNames from "classnames";
 
 // Easier to read date

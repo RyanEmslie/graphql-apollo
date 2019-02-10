@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import AppNavbar from "./components/AppNavbar";
 import About from "./components/About";
-import Launches from "./components/Launches";
-import Launch from "./components/Launch";
-import LaunchPads from "./components/LaunchPads";
+import Launches from "./components/launches/Launches";
+import Launch from "./components/launches/Launch";
+import LaunchPads from "./components/launchpads/LaunchPads";
+import LaunchPad from "./components/launchpads/LaunchPad";
+import Roadster from "./components/roadster/Roadster";
 
 // import logo from "./logo.png";
 import "./App.css";
@@ -20,15 +22,10 @@ const client = new ApolloClient({
 class App extends Component {
 	render() {
 		return (
-			// Outside wrapper of render elements
+			// Outermost  wrapper of render elements
 			<ApolloProvider client={client}>
 				<Router>
 					<div className="container">
-						{/* <img
-							src={logo}
-							alt="SpaceX"
-							style={{ width: 300, display: "block", margin: "auto" }}
-						/> */}
 						<AppNavbar />
 						<Route exact path="/" component={About} />
 						<Route exact path="/launches" component={Launches} />
@@ -38,6 +35,8 @@ class App extends Component {
 							component={Launch}
 						/>
 						<Route exact path="/launchpads" component={LaunchPads} />
+						<Route exact path="/launchpads/:site_id" component={LaunchPad} />
+						<Route exact path="/roadster" component={Roadster} />
 					</div>
 				</Router>
 			</ApolloProvider>

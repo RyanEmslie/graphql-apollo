@@ -27,6 +27,8 @@ class AppNavbar extends Component {
 	};
 
 	// opens form || closes form
+	//! First time trying out try/catch and .match
+	//!if (document.body.classList.contains('')) {
 	showForm = () => {
 		try {
 			let temp = document.querySelector(".my-form");
@@ -45,7 +47,6 @@ class AppNavbar extends Component {
 			<div className="app-navbar">
 				<Navbar color="dark" dark expand="sm" className="mb-5">
 					<Container>
-						{/* <NavbarBrand id="emslie-logo">Emslie Checkin App</NavbarBrand> */}
 						<NavbarBrand id="emslie-logo">
 							<img
 								src={logo}
@@ -60,10 +61,13 @@ class AppNavbar extends Component {
 									<NavLink href="/">Home</NavLink>
 								</NavItem>
 								<NavItem>
-									<NavLink href="launches">Launches</NavLink>
+									<NavLink href="/launches">Launches</NavLink>
 								</NavItem>
 								<NavItem>
-									<NavLink href="launchpads">Launch Pads</NavLink>
+									<NavLink href="/launchpads">Launch Pads</NavLink>
+								</NavItem>
+								<NavItem>
+									<NavLink href="/roadster">Elon's Roadster</NavLink>
 								</NavItem>
 							</Nav>
 						</Collapse>

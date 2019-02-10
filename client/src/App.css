@@ -1,0 +1,15 @@
+.map {
+	/* height: 100%; */
+	min-height: 350px;
+	z-index: 990;
+	/* width: 100%; */
+	/* margin-top: -3rem; */
+}
+
+.card {
+	background-color: #192f45;
+}
+
+.app-navbar {
+	background-color: #192f45;
+}

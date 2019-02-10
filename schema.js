@@ -6,7 +6,8 @@ const {
 	GraphQLString,
 	GraphQLBoolean,
 	GraphQLList,
-	GraphQLSchema
+	GraphQLSchema,
+	GraphQLFloat
 } = require("graphql");
 
 // Launch Type
@@ -31,6 +32,39 @@ const RocketType = new GraphQLObjectType({
 		rocket_id: { type: GraphQLString },
 		rocket_name: { type: GraphQLString },
 		rocket_type: { type: GraphQLString }
+	})
+});
+
+// Launch Pad Type
+const LaunchPadsType = new GraphQLObjectType({
+	name: "LaunchPads",
+	fields: () => ({
+		// id: { type: GraphQLInt },
+		site_id: { type: GraphQLString },
+		status: { type: GraphQLString },
+		site_name_long: { type: GraphQLString },
+		location: { type: LaunchPadsLocationType }
+	})
+});
+// Nested
+const LaunchPadsLocationType = new GraphQLObjectType({
+	name: "LaunchPadsLocation",
+	fields: () => ({
+		name: { type: GraphQLString },
+		latitude: { type: GraphQLFloat },
+		longitude: { type: GraphQLFloat }
+	})
+});
+
+// Roadster Type
+const RoadsterType = new GraphQLObjectType({
+	name: "Roadster",
+	fields: () => ({
+		name: { type: GraphQLString },
+		details: { type: GraphQLString },
+		speed_mph: { type: GraphQLFloat },
+		earth_distance_mi: { type: GraphQLFloat },
+		mars_distance_mi: { type: GraphQLFloat }
 	})
 });
 
@@ -74,6 +108,33 @@ const RootQuery = new GraphQLObjectType({
 			resolve(parent, args) {
 				return axios
 					.get(`https://api.spacexdata.com/v3/rockets/${args.rocket_id}`)
+					.then(res => res.data);
+			}
+		},
+		launchPads: {
+			type: new GraphQLList(LaunchPadsType),
+			resolve(parent, args) {
+				return axios
+					.get("https://api.spacexdata.com/v3/launchpads")
+					.then(res => res.data);
+			}
+		},
+		launchPadsLocation: {
+			type: LaunchPadsType,
+			args: {
+				site_id: { type: GraphQLString }
+			},
+			resolve(parent, args) {
+				return axios
+					.get(`https://api.spacexdata.com/v3/launchpads/${args.site_id}`)
+					.then(res => res.data);
+			}
+		},
+		roadster: {
+			type: RoadsterType,
+			resolve(parent, args) {
+				return axios
+					.get("https://api.spacexdata.com/v3/roadster")
 					.then(res => res.data);
 			}
 		}
