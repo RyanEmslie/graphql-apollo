@@ -26,21 +26,21 @@ class AppNavbar extends Component {
 		});
 	};
 
-	// opens form || closes form
-	//! First time trying out try/catch and .match
-	//!if (document.body.classList.contains('')) {
-	showForm = () => {
-		try {
-			let temp = document.querySelector(".my-form");
-			if (temp.className.match(/\bhidden\b/)) {
-				temp.classList.remove("hidden");
-			} else {
-				temp.classList.add("hidden");
-			}
-		} catch {
-			return;
-		}
-	};
+	// // opens form || closes form
+	// //! First time trying out try/catch and .match
+	// //!if (document.body.classList.contains('')) {
+	// showForm = () => {
+	// 	try {
+	// 		let temp = document.querySelector(".my-form");
+	// 		if (temp.className.match(/\bhidden\b/)) {
+	// 			temp.classList.remove("hidden");
+	// 		} else {
+	// 			temp.classList.add("hidden");
+	// 		}
+	// 	} catch {
+	// 		return;
+	// 	}
+	// };
 
 	render() {
 		return (
